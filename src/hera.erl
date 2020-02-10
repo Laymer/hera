@@ -36,12 +36,14 @@ stop(_State) -> ok.
 %% @end
 %% -------------------------------------------------------------------
 launch_app() ->
-  hera_pool:start_pool(multicastPool, 1, {hera_multicast, start_link, []}),
-  hera_pool:run(multicastPool, []),
-  hera_pool:start_pool(pool1, 1, {hera_measure, start_link, []}),
-  hera_pool:run(pool1, [1000]),
-  hera_pool:start_pool(pool2, 1, {hera_position, start_link, []}),
-  hera_pool:run(pool2, [2000]).
+  %hera_pool:start_pool(multicastPool, 1, {hera_multicast, start_link, []}),
+  %hera_pool:run(multicastPool, []),
+  %hera_pool:start_pool(pool1, 1, {hera_measure, start_link, []}),
+  %hera_pool:run(pool1, [1000]),
+  %hera_pool:start_pool(pool2, 1, {hera_position, start_link, []}),
+  %hera_pool:run(pool2, [2000]).
+  hera_pool:start_pool(pool0, 1, {hera_filter, start_link, []}),
+  hera_pool:run(pool0, [10]).
 
 %% -------------------------------------------------------------------
 %% @doc
